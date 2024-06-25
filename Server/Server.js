@@ -1,9 +1,17 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const cors = require("cors");
+
 
  
 const app = express();
+
+app.use(cors({
+    origin: 'https://your-frontend-domain.vercel.app', // Replace with your frontend URL
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    credentials: true, // If you need to send cookies with requests
+  }));
 
 app.use(function (req, res, next) {
     res.setHeader('Access-Control-Allow-Origin', '*');
